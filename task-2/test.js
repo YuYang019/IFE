@@ -34,7 +34,7 @@ Observer.prototype._parseData = function(obj){
 		if(obj.hasOwnProperty(key)){
 			value = obj[key]
 			//如果value为对象，则递归遍历
-			if(typeof value == 'Object'){
+			if(typeof value == 'object'){
 				this._parseData(value)
 			}
 			this.convert(key,value)
