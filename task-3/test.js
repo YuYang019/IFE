@@ -8,31 +8,27 @@ PubSub.prototype = {
 	//订阅
 	on: function(eventType, handler){
 		var that = this
-		
+		//如果订阅时没有对应主题，则创建一个属于该主题的空数组用于存放订阅者的回调函数
 		if(!(eventType in that.handler)){
 			that.handler[eventType] = []
 		}
-		
-		that.handler[eventType].push(handler)
-		
+		//把订阅者的回调函数推入该主题的数组
+		that.handler[eventType].push(handler)		
 		return that
 	},
 	//发布 eg: emit('A',"我是参数") eventType = 'A'
 	emit: function(eventType){
 		var that = this
 		//发布的参数
-		var handlerArgs = Array.prototype.slice.call(arguments,1)
-		
+		var handlerArgs = Array.prototype.slice.call(arguments,1)		
+		//同on
 		if(!(eventType in that.handler)){
 			that.handler[eventType] = []
-			//alert(1)
 		}
-		//console.log(that.handler[eventType])
 		for(var i = 0; i < that.handler[eventType].length; i++){
 			//循环调用订阅者的回调函数,传入对应参数
 			that.handler[eventType][i].apply(that,handlerArgs)
-		}
-		
+		}		
 		return that
 	}
 }
@@ -66,11 +62,11 @@ Observer.prototype.convert = function(key,val){
 		set: function(newVal){
 			console.log('你设置了'+ key + ',' + '新的值为' + JSON.stringify(newVal))
 			val = newVal
-			
+			//如果新赋值为对象，则深层遍历			
 			if(typeof val === 'object'){
 				new Observer(val)
 			}
-
+			//每当赋值的时候，发布
 			that.$pubsub.emit(key,val)
 		}
 	})
@@ -86,7 +82,7 @@ Observer.prototype._parseData = function(obj){
 			value = obj[key]
 			//如果value为对象，则递归遍历
 			if(typeof value === 'object'){
-				//this._parseData(value) 不能正确console
+				//this._parseData(value) 不能正确console，但是能添加get和set，为啥
 				new Observer(value)  //可以
 			}
 			this.convert(key,value)
@@ -94,7 +90,7 @@ Observer.prototype._parseData = function(obj){
 	}
 }
 
-//watch
+//watch，订阅
 Observer.prototype.$watch = function(key, callback){
 	this.$pubsub.on(key,callback)
 }
