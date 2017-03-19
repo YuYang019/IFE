@@ -39,7 +39,7 @@ var eventBus = new PubSub()
 //观察者
 function Observer (options,$p) {
  	//this._init(options) 原来没加$p这个参数，这样只会把第一个参数传入，而后面没写出来的$p会丢失
- 	this._init(options,$p) //还是得加一个$p参数，或者不要init，把_init里的语句直接放到Observer里
+ 	this._init(options,$p) //还是得加一个$p参数，或者不要_i2nit，把_init里的语句直接放到Observer里
 }
 //初始化函数
 Observer.prototype._init = function(options,$p){
