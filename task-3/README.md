@@ -1,4 +1,4 @@
-##vue双向数据绑定,第二部分，运用了发布订阅模式实现$watch
+## vue双向数据绑定,第二部分，运用了发布订阅模式实现$watch
 任务描述链接:[here](http://ife.baidu.com/course/detail/id/20)
 
 简单说一下思路以免以后忘了，PubSub是一个发布订阅器，包含一个handler对象，和两个方法，on（订阅）和emit（发布）
