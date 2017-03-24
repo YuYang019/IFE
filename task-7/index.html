@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3实现loading</title>
+	<style type="text/css">
+		.wrapper {
+			width: 200px;
+			height: 200px;
+			position: relative;
+		}
+		.outer {
+			position: absolute;
+			top: 38px;
+			left: 38px;
+			width: 120px;
+			height: 120px;
+			border-radius: 50%;
+			border: 2px solid rgb(255,41,140);
+			border-top-color: transparent;
+			animation: change 1s linear infinite;
+		}
+
+		.full-circle {
+			position: absolute;
+			top: 50px;
+			left: 50px;
+			width: 0;
+			height: 0;
+			border-radius: 50%;
+			border: 50px solid rgb(255,41,140);
+			border-top-color: rgb(251,139,189);
+			border-right-color: rgb(251,139,189);
+			transform: rotate(45deg);
+		}
+
+		.left-circle {
+			position: absolute;
+			z-index: 6;
+			left: 50px;
+			top: 50px;
+			width: 0;
+			height: 0;
+			border: 50px solid transparent;
+			border-radius: 50%;
+			border-top-color: rgb(251,139,189);
+			border-left-color: rgb(251,139,189);
+			animation: showLeft 2s linear infinite;
+		}
+
+		.right-circle {
+			position: absolute;
+			z-index: 5;
+			top: 50px;
+			left: 50px;
+			width: 0;
+			height: 0;
+			border: 50px solid transparent;
+			border-radius: 50%;
+			border-top-color: rgb(255,41,140);
+			border-left-color: rgb(255,41,140);
+			animation: showRight 2s linear infinite;
+			animation-delay: 0.5s;
+		}
+
+		@keyframes showLeft {
+			from {
+				transform: rotate(-45deg);
+			}
+			25% {
+				transform: rotate(-225deg);
+			}
+			50% {
+				transform: rotate(-225deg);
+			}
+			75% {
+				transform: rotate(-405deg);
+			}
+			to {
+				transform: rotate(-405deg);
+			}
+		}	
+		
+		@keyframes showRight {
+			from {
+				transform: rotate(-45deg);
+				z-index: 5;
+			}
+			0.001% {
+				z-index: 6;
+			}
+			25% {
+				transform: rotate(-225deg);			
+			}
+			50% {
+				transform: rotate(-225deg);
+			}
+			75% {
+				transform: rotate(-405deg);
+			}
+			/*99.999% {
+				transform: rotate(-405deg);
+				z-index: 5;
+			}*/
+			to {
+				transform: rotate(-405deg);
+				z-index: 5;
+			}
+		}
+
+		@keyframes change {
+			0% {
+				transform: rotate(0deg);
+			}
+			50% {
+				transform: rotate(-180deg);
+			}
+			100% {
+				transform: rotate(-360deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="outer"></div>
+		<div class="full-circle"></div>
+		<div class="left-circle"></div>
+		<div class="right-circle"></div>
+	</div>	
+</body>
+</html>
