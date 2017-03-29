@@ -32,7 +32,6 @@
 	var Audio = function (options) {
 		this.music = options || []
 		this.len = this.music.length //歌曲数量
-		this.duration = 0
 		this.curIndex = 0 //当前歌曲索引
 		this.isMuted = false //是否静音
 		this.isLoop = false //是否循环
@@ -54,10 +53,10 @@
 			'click .pre': 'preClick',
 			'click .bar': 'barClick'
 		}
-
+		//初始化函数
 		this._init() 
 	}
-	//所有涉及到的节点
+	//所有涉及到的节点,集中管理
 	Audio.Eles = {
 		list: '.menu .list', //歌曲列表
 		time: '.time', //歌曲时间
@@ -125,7 +124,6 @@
 		},
 		//更新时间
 		updateTime: function () {
-			//duration不能正确获取,为NaN
 			var duration = this.player.duration,
 				cur = this.player.currentTime,
 				that = this
@@ -178,7 +176,6 @@
 		},
 		randomClick: function () {
 			this.isLoop = !this.isLoop
-			console.log(this.isLoop)
 
 			if (this.isLoop) {
 				this.random.className = 'random glyphicon glyphicon-retweet'
@@ -186,7 +183,6 @@
 			} else {
 				this.random.className = 'random glyphicon glyphicon-random'
 				this.player.loop = false
-				//this.play(utils.randomNumber(this.len))
 			}
 		},
 		goClick: function () {
