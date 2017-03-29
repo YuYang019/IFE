@@ -2,6 +2,8 @@
 
 ### 任务描述链接:[here](http://ife.baidu.com/course/detail/id/83)
 
+### 预览[Demo](http://htmlpreview.github.io/?https://github.com/maoyuyang/IFE/blob/master/task-8/index.html)mp3加载可能会有点慢
+
 这个任务其实并不难，就是对于audio的属性和事件的运用，我觉得本任务的重点应该是对于整体代码的设计
 
 这个任务js有两个版本，第一个是最初始的意识流写法，就是以实现功能为目的。。。第二个是参考了网上的资料后重构后的版本，运用了很多技巧，重构后看起来更有条理。但是感觉吧，还是第一种写起来舒服- -，第二种有种高射炮打蚊子的感觉。
