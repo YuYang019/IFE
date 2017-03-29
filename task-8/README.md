@@ -2,7 +2,7 @@
 
 ### 任务描述链接:[here](http://ife.baidu.com/course/detail/id/83)
 
-### 预览[Demo](http://htmlpreview.github.io/?https://github.com/maoyuyang/IFE/blob/master/task-8/index.html)mp3加载可能会有点慢
+### 预览[Demo](http://htmlpreview.github.io/?https://github.com/maoyuyang/IFE/blob/master/task-8/index.html) (mp3加载可能会有点慢)
 
 这个任务其实并不难，就是对于audio的属性和事件的运用，我觉得本任务的重点应该是对于整体代码的设计
 
