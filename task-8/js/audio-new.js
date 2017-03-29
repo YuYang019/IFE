@@ -178,14 +178,15 @@
 		},
 		randomClick: function () {
 			this.isLoop = !this.isLoop
+			console.log(this.isLoop)
 
 			if (this.isLoop) {
 				this.random.className = 'random glyphicon glyphicon-retweet'
 				this.player.loop = true
 			} else {
-				this.className = 'random glyphicon glyphicon-random'
+				this.random.className = 'random glyphicon glyphicon-random'
 				this.player.loop = false
-				this.play(utils.randomNumber(this.len))
+				//this.play(utils.randomNumber(this.len))
 			}
 		},
 		goClick: function () {
