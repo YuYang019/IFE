@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.div {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			position: absolute;
+			left: 100px;
+			text-align: center;
+			opacity: 0.5	
+		}
+
+		.div1 {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			position: absolute;
+			top: 200px;
+			left: 100px;
+			opacity: 0.1;
+			text-align: center;
+			line-height: 100px;	
+		}
+
+		.div2 {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			position: absolute;
+			top: 400px;
+			left: 100px;
+			text-align: center;
+			line-height: 100px	
+		}
+
+	</style>
+</head>
+<body>
+	<div class="div">animate调用,延迟两秒执行,infinite无限循环,鼠标移入stop</div>
+	<div class="div1">fadeIn调用</div>
+	<div class="div2">fadeOut调用</div>
+	<script type="text/javascript" src="tween.js"></script>
+	<script type="text/javascript" src="animate.js"></script>
+	<script type="text/javascript">
+		$('.div').animate(
+			//动画目标
+			{
+				left: 500,
+				width: 200,
+				height: 200,
+				opacity: 100 //0~100之间
+			},
+			//配置参数
+			{
+				duration: 2000,  //持续时间
+				type: 'bounceOut', //动画类别
+				delay: 2000, // 延迟执行
+				loopTime: 'infinite', //动画循环次数 infinite或者数字
+				callback: function(){
+					console.log('callback')
+				}
+			}
+		)
+
+		document.querySelector('.div').onmouseover = function() {
+			$('.div').stop()
+		}	
+
+		//参数：time，callback
+		//time默认为500
+		$('.div1').fadeIn(300, function(){ console.log('fadein') })
+
+
+		$('.div2').fadeOut(600, function(){ console.log('fadeout') })
+
+		
+	</script>
+</body>
+</html>
