@@ -1,0 +1,98 @@
+body {
+	font-family: '微软雅黑'
+}
+
+.content {
+	width: 1000px;
+	margin: 50px auto;
+}
+.input {
+	width: 200px;
+	padding: 10px 15px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	outline: none;
+	color: #333;
+	transition: all .3s linear;
+}
+
+input::-webkit-input-placeholder {
+　　color:#ccc;
+}
+
+
+.input:focus {
+	border: 1px solid #20a0ff;
+}
+
+.select {
+	padding: 8px 10px;
+	border: 1px solid #ccc;
+}
+
+.submit {
+	margin-left: 30px;
+	padding: 8px 0;
+	width: 100px;
+	background: #20a0ff;
+	color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.submit, .select, .input {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.error,.loading,.success {
+	font-size: 12px;
+	font-weight: 700;
+	color: #333;
+}
+
+.error {
+	color: red;
+}
+
+.success {
+	color: green;
+}
+
+.title {
+	font-size: 16px;
+	color: #333;
+	font-weight: 700;
+	border-bottom: 1px solid #ccc;
+	line-height: 40px;
+}
+
+table {
+	width: 100%;
+	table-layout:fixed;
+	word-break:break-all;
+}
+
+table tr {
+	font-size: 0;
+}
+
+table td {
+	font-size: 14px;
+	padding: 10px 15px;
+	width: 25%;
+	box-sizing: border-box;
+}
+
+table td img {
+	max-width: 200px;
+	max-height: 200px;
+}
+
+table tr:nth-child(2n+1) {
+	background-color: #f7f7f7;
+}
+
+table .t-head {
+	font-weight: 700;
+}
